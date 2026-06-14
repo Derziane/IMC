@@ -29,12 +29,16 @@
         const peso = parseFloat(params.get("peso"));
         const altura = parseFloat(params.get("altura"));
 
-        const imc = peso / (altura * altura);
+        if (!isNaN(peso) && !isNaN(altura) && altura > 0) {
+            const imc = peso / (altura * altura);
 
-        document.getElementById("resultado").innerHTML =
-            `O seu IMC é ${imc.toFixed(2)}`;
+            document.getElementById("resultado").innerHTML =
+                `O seu IMC é ${imc.toFixed(2)}`;
+        } else {
+            document.getElementById("resultado").innerHTML =
+                "Dados inválidos!";
+        }
     </script>
 
-    <script src="./js/server.js"></script>
 </body>
 </html>
