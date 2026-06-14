@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado IMC</title>
+</head>
+<body>
+    <h1>VERIFIQUE SEU IMC</h1>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+    </ul>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const peso = parseFloat(params.get("peso"));
+        const altura = parseFloat(params.get("altura"));
+
+        const imc = peso / (altura * altura);
+
+        document.getElementById("resultado").innerHTML =
+            `O seu IMC é ${imc.toFixed(2)}`;
+    </script>
+</body>
+</html>
